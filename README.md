@@ -6,4 +6,4 @@ There is no particular order or functioning to how these scripts work, it's more
 Even updating the scripts to your liking and using them is okay too, after all, it's MIT-licensed!
 
 ## License
-Archive (for Roblox) is licensed under the (MIT License)[./License]
+Archive (for Roblox) is licensed under the [MIT License](./License)
