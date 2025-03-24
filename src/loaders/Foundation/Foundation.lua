@@ -1,3 +1,0 @@
-local Foundation = {}
-
-return Foundation
