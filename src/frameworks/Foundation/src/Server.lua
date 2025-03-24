@@ -1,5 +1,5 @@
 --[[
-    HitboxObject.lua
+    Server.lua
     Author: Conscience (@MixedConscience)
     -----------------
     Server-sided runtime for the Foundation framework.

@@ -1,5 +1,5 @@
 --[[
-    HitboxObject.lua
+    Client.lua
     Author: Conscience (@MixedConscience)
     -----------------
     Client-sided runtime for the Foundation framework.
