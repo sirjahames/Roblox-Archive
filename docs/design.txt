@@ -1,0 +1,110 @@
+local frame
+local test
+local assert
+
+local enums
+
+frame("cross-networking", function()
+    test("can send string type", function()
+        assert(enums.eq,     x, y)          --> x == y
+        assert(enums.neq,    x + 1, y)      --> x ~= y
+        assert(enums.type,   "number", x)   --> typeof(x) == "number"
+        assert(enums.exists, x)             --> (x ~= nil) and (x ~= false)
+        assert(enums.notnil, x)             --> (x ~= nil)
+
+        local function isEven(xArg, yArg)
+            return (xArg % 2 == 0) and (yArg % 2 == 0)
+        end
+
+        assert(isEven, x, y)
+    end) 
+end)
+
+--
+
+local logger
+
+logger.log("something")   --> prints or logs to the output
+logger.warn("warning")    --> warns to the output
+logger.error("error")     --> errors to the output
+logger.assert(x, "error") --> asserts the passed value and returns an error if falsey
+
+logger.history()          --> returns the history of the logs
+logger.level(value)       --> sets the log value (1 = print, 2 = print | warn, 3 = print | warn | error)
+
+--
+
+local create
+local edit
+
+local reference
+local capture
+
+local name = reference("glow")
+local position = reference(Vector3.one)
+local scale = reference(Vector3.one)
+
+local part = create("Part") {
+    Name = name,
+    Position = position,
+    Size = capture(scale, function(value)
+        return value * 2 --> always multiply whatever value is set for scale by 2
+    end),
+
+    Color3 = Color3.fromRGB(255, 0, 0),
+    Material = Enum.Material.Neon,
+    Anchored = true
+}
+
+part.Parent = workspace
+
+name.set("brick")
+scale.set(Vector3.one * 2)
+
+edit(part) {
+    Color3 = Color3.fromRGB(255, 255, 255),
+    Material = Enum.Material.Plastic,
+    Ancghored = false
+}
+
+--
+
+local stack
+
+stack.push(value)
+stack.pop()
+stack.top()
+
+stack.empty()
+stack.size()
+stack.clear()
+
+--
+
+local queue
+
+queue.enqueue(value)
+queue.dequeue()
+queue.front()
+queue.rear()
+
+queue.empty()
+queue.size()
+queue.clear()
+
+--
+
+local link
+
+link.insert(value, index)
+link.find(value)
+link.get(index)
+link.remove(index)
+
+link.empty()
+link.size()
+link.clear()
+
+--
+
+ 

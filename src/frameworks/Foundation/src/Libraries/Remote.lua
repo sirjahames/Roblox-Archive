@@ -73,7 +73,12 @@ local function ResolveRemote(path: string)
 		Destination = NewDestination
 	end
 
-	return (if IsARemote(Destination) then Destination else nil)
+	if IsARemote(Destination) then
+		Private.Remotes[Destination.Name] = Destination
+		return Destination
+	end
+
+	return nil
 end
 
 local function AssertRemote(remote: string | RemoteEvents)
